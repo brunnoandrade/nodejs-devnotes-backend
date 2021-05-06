@@ -3,25 +3,12 @@ const router = express.Router();
 
 const NoteController = require('./controllers/NoteController');
 
-// router.get('/ping', (req, res)=>{
-//     res.json({pong: true});
-// });
-
 router.get('/ping', NoteController.ping);
 
-// router.get('/states', UserController.getStates);
-
-// router.post('/user/signin', AuthValidator.signin, AuthController.signin);
-// router.post('/user/signup', AuthValidator.signup, AuthController.signup);
-
-// router.get('/user/me', Auth.private, UserController.info);
-// router.put('/user/me', UserValidator.editAction, Auth.private, UserController.editAction);
-
-// router.get('/categories', AdController.getCategories);
-
-// router.post('/ad/add', Auth.private, AdController.addAction);
-// router.get('/ad/list', AdController.getList);
-// router.get('/ad/item', AdController.getItem);
-// router.post('/ad/:id', Auth.private, AdController.editAction);
+router.get('/notes', NoteController.all);
+router.get('/note/:id', NoteController.one);
+router.post('/note', NoteController.new);
+router.put('/note/:id', NoteController.edit);
+router.delete('/note/:id', NoteController.delete);
 
 module.exports = router;
